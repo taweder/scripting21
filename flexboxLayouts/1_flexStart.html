@@ -7,12 +7,15 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Akronim&family=Roboto:ital,wght@0,100;0,400;1,700&display=swap" rel="stylesheet">
-
+	
+	<!--tag to check the device size, needed for media queries-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<style>
 				
 		body{
 			font-family: 'Roboto', sans-serif;
+			margin: 0;
 		}
 		header{
 			background-color: #202020;
@@ -35,11 +38,12 @@
 		}
 		
 		.flex-container div{
-			background-color: aqua;
+			background-color: antiquewhite;
 			margin:10px;
+			padding: 20px;
 		}
 		/*set the widths of the divs*/
-		
+		/***************first row*********************/
 		#item1{
 			flex:25%;
 		}
@@ -49,11 +53,43 @@
 		#item3{
 			flex:25%;
 		}
+		
+		
+		/***************second row*********************/
 		#item4{
 			flex:50%;
 		}
 		#item5{
 			flex:50%;
+		}
+		
+		/***************footer*********************/
+		#item6{
+			flex:25%;
+			/*over write the inherited style*/
+			background-color: transparent;
+		}
+		#item7{
+			flex:50%;
+		}
+		#item8{
+			flex:25%;
+			/*over write the inherited style*/
+			background-color: transparent;
+		}
+		
+		footer{
+			background-color:#160102;
+			padding:50px 0px;
+		}
+		
+		/*********media query to change the style for phones****/
+		@media (max-width:800px){
+			
+			.flex-container{
+				flex-direction:column;
+			}
+			
 		}
 		
 	
@@ -79,5 +115,20 @@
 		<div id="item5">5</div>
 	</div>
 	
+	<footer>
+		<div class="flex-container">
+			<div id="item6">6</div>
+			<div id="item7">7</div>
+			<div id="item8">8</div>
+		</div> 
+		
+	</footer>
+	
 </body>
 </html>
+
+
+
+
+
+

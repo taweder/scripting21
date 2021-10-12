@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Flexbox</title>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Akronim&family=Roboto:ital,wght@0,100;0,400;1,700&display=swap" rel="stylesheet">
+	
+	<!--tag to check the device size, needed for media queries-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<style>
+				
+		body{
+			font-family: 'Roboto', sans-serif;
+			margin: 0;
+		}
+		header{
+			background-color: #202020;
+			/*adding a background image*/
+			background-image: url("images/moon.jpg");
+			/*sets the bgImage to fill the available space*/
+			background-size:cover;
+			/*sticks it in place*/
+			background-attachment: fixed;
+			/*positions the image in the div*/
+			background-position: center;
+			
+			
+			
+			color:orange;
+			height:50vh;
+			/*this is a flexbox element*/
+			display: flex;
+			/*put this in the center of the container*/
+			align-items: center;
+			padding-left: 20px;
+/*			justify-content: center;*/
+		}
+		
+		header h1{
+			font-size: 50px;
+			font-family: 'Akronim', cursive;			
+		}
+		
+		.flex-container{
+			display: flex;
+		}
+		
+		.flex-container div{
+			background-color: antiquewhite;
+			margin:10px;
+			padding: 20px;
+		}
+		/*set the widths of the divs*/
+		/***************first row*********************/
+		#item1{
+			flex:25%;
+		}
+		
+		#item1 img{
+			width:100%;
+		}
+		
+		
+		#item2{
+			flex:50%;
+		}
+		#item3{
+			flex:25%;
+		}
+		
+		/**CSS for Buttons**/
+		.btn{
+			background-color: #f4511e;
+			border:none;
+			padding:15px 32px;
+			font-size: 16px;
+			width:100%;
+		}
+		/*hover state*/
+		.btn:hover{
+			background-color: #A64512;
+			color: white;
+		}
+		
+		
+		
+		/***************second row*********************/
+		#item4{
+			flex:50%;
+		}
+		#item5{
+			flex:50%;
+		}
+		
+		/***************footer*********************/
+		#item6{
+			flex:25%;
+			/*over write the inherited style*/
+			background-color: transparent;
+		}
+		#item7{
+			flex:50%;
+			background-color: transparent;
+		}
+		#item8{
+			flex:25%;
+			/*over write the inherited style*/
+			background-color: transparent;
+		}
+		
+		footer{
+			background-color:#160102;
+			padding:50px 0px;
+			color:orange;
+			text-align: center;
+			font-weight: bold;
+		}
+		
+		/*********media query to change the style for phones****/
+		@media (max-width:800px){
+			
+			.flex-container{
+				flex-direction:column;
+			}
+			
+		}
+		
+	
+	</style>
+</head>
+
+<body>
+	
+	<header>
+		<h1>The Page Heading</h1>
+	</header>
+	<!----------------------row 1 ------------------------->
+	<div class="flex-container">
+		<div id="item1">
+			<img src="images/person.jpg" alt="creepy person">
+		</div>
+		<div id="item2">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis tempora, esse distinctio non eius odio delectus quia sapiente ad, voluptate aspernatur possimus architecto, accusamus ea similique iste nobis consequuntur. Temporibus vitae possimus quos id deserunt rerum nemo iste, aut ad necessitatibus fugiat pariatur sunt. Debitis molestias doloremque saepe, cupiditate ducimus fuga repellendus, excepturi, asperiores magni vel, fugiat! Ipsum magni possimus voluptatum quibusdam rem explicabo sequi ipsam laboriosam cum amet et quo maiores alias, animi dolorem unde. Molestias inventore fugit cum earum eaque reiciendis voluptate sint, veniam, a error odio illo quod soluta nulla laboriosam, vel laborum voluptatem doloribus totam neque?</p>
+		
+		</div>
+		<div id="item3">
+			<!--add some buttons-->
+			
+			<p><button class="btn">Click Me!</button></p>
+			
+			<p><button class="btn">Click Me Too!</button></p>
+		</div>
+	</div> 
+	
+	
+	
+	<div class="flex-container">
+		<div id="item4">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt cum, maxime deserunt minus, quibusdam alias, necessitatibus ea non vitae molestiae laboriosam neque asperiores, doloribus ipsam. Enim nostrum accusamus, vitae excepturi.</p>
+		
+		</div>
+		<div id="item5">
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque rem totam cupiditate sint quae. Expedita vitae iure nihil adipisci laudantium dolor impedit repellendus quos! Neque.</p>
+		</div>
+	</div>
+	
+	<footer>
+		<div class="flex-container">
+			<div id="item6"></div>
+			<div id="item7">
+				<p>Created by Tanya Weder &amp; Paige</p>
+				<p>&copy; 2021</p>
+			</div>
+			<div id="item8"></div>
+		</div> 
+		
+	</footer>
+	
+</body>
+</html>
+
+
+
+
+
+
