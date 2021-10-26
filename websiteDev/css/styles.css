@@ -1,0 +1,134 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/*My Google Fonts - when it's in an external file*/
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body{
+	/*Remove default spacing*/
+	margin: 0; 
+	padding: 0; 
+	
+	/*set a background colour*/
+	background:#622819; 
+	
+	/*set a default font family*/
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+}
+
+h1{
+	/*set a fint for headings*/
+	font-family: 'Press Start 2P', cursive;
+	font-size: 2.5em;/*1 em = 16 px(default size) so 2.5em= 40px*/
+	color: white;
+}
+
+
+#header{
+	margin: 0;
+	/*space inside the div*/
+	padding: 100px;
+	
+	/*set a background image*/
+	background-image:url("../images/backgrounds/lights.png");
+	/*set the background image to cover the whole div*/
+	background-size: cover;
+}
+
+#subHead{
+	/*space inside the div*/
+	padding: 100px;
+	
+	/*set margin top and bottom to 0 and auto centered*/
+	margin: 0 auto;
+	/*set a background image*/
+	background-image: url("../images/backgrounds/spring.jpg");
+	/*set the background image to cover the whole div*/
+	background-size:cover;
+	/*make it so the background image doesn't scroll with the page*/
+	background-attachment:fixed;
+	/*set css to look at entire element (padding included) to set size*/
+	box-sizing: border-box;
+	/*set a maximum width of 960px*/
+	max-width: 960px;
+
+}
+
+.sect{
+	
+	background: #FFFFFF; 
+	margin: 0 auto; 
+	padding: 20px; 
+	
+	/*set css to look at entire element (padding included) to set size*/
+	box-sizing: border-box;
+	/*set a maximum width of 960px*/
+	max-width: 960px;
+}
+
+/*psuedo-classes for the links (with rollovers)*/
+a:link, a:visited{
+	color:#B0A33C; 
+	text-decoration: none;
+}
+a:hover{
+	color:red; 
+	text-decoration: underline;
+}
+a:active{
+	color: orangered;
+}
+
+/*------------------------navBar -------------------*/
+nav ul {
+  /*removes the dots from the list items*/
+	list-style-type: none;
+	/*removes default list indentations*/
+	margin: 0;
+	padding: 0;
+	
+	/*this makes the bar go full width*/
+  	overflow: hidden;
+	/*background colour behind list*/
+  	background-color: #E38E2F;
+	
+	
+}
+
+nav li {
+	/*puts the lists to the right of each other*/
+  float: left;
+}
+
+nav li a:link, nav li a:visited {
+	/*makes all links a box*/
+	display: block;
+	/*text color*/
+	color: #272727;
+	/*centers texts*/
+	text-align: center;
+	/*adds spacing around the link*/
+	padding: 20px 30px;
+	/*remove the underline from links*/
+	text-decoration: none;
+}
+
+/* Change the link properties on hover */
+nav li a:hover {
+  	background-color: #770F11;
+	color:#F3D385;
+}
+
+nav{
+	position: -webkit-sticky; /* Safari */
+  	position: sticky;
+  	top: 0;
+}
+
+
+/*----------------------------image gallery-----------------*/
+
+
+
+/*---------------------------Tables------------------------*/
+
