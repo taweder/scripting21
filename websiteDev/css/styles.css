@@ -127,8 +127,35 @@ nav{
 
 
 /*----------------------------image gallery-----------------*/
+div.gallery {
+  margin: 5px;
+  border: 5px solid #C7571C;
+  float: left;
+  width: 22%;
+}
 
+div.gallery:hover {
+  border: 5px solid #CF1B1E;
+}
 
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
 
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.clearIt{
+	clear:both;
+}
 /*---------------------------Tables------------------------*/
+
+
+
+
+
+
 
