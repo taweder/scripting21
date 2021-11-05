@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Clicking Panels</title>
+	
+	<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+	<!--library for creating templates of objects-->
+	<script src="https://unpkg.com/aframe-template-component@3.x.x/dist/aframe-template-component.min.js"></script>
+	
+	<!--library for events setting on panels-->
+	<script src="https://unpkg.com/aframe-event-set-component@5.x.x/dist/aframe-event-set-component.min.js"></script>
+	
+	
+	 <!-- turning the plane into a 'component' using the template library-->
+<!--
+	  <script id="plane" type="text/html">
+			<a-entity class="link"
+			  geometry="primitive: plane; height: 1; width: 1"
+			  material="shader: flat; src: #thumb1"
+			  sound="on: click; src: #click-sound"></a-entity>
+	</script>
+-->
+	
+	<!--then replace src with a variable-->
+<!--
+	<script id="plane" type="text/html">
+			<a-entity class="link"
+			  geometry="primitive: plane; height: 1; width: 1"
+			  material="shader: flat; src: ${thumb}"
+			  sound="on: click; src: #click-sound"></a-entity>
+	</script>
+-->
+	
+	<!--then add the animations-->
+<!--
+	<script id="plane" type="text/html">
+			<a-entity class="link"
+			  geometry="primitive: plane; height: 1; width: 1"
+			  material="shader: flat; src: ${thumb}"
+			  sound="on: click; src: #click-sound"
+			  event-set__mouseenter="scale: 1.2 1.2 1"
+	          event-set__mouseleave="scale: 1 1 1"></a-entity>
+	</script>
+-->
+	
+	<!--then target the other panel to change the image out-->
+<!--
+	<script id="plane" type="text/html">
+			<a-entity class="link"
+			  geometry="primitive: plane; height: 1; width: 1"
+			  material="shader: flat; src: ${thumb}"
+			  sound="on: click; src: #click-sound"
+			  event-set__mouseenter="scale: 1.2 1.2 1"
+	          event-set__mouseleave="scale: 1 1 1"
+			  event-set__click="_target: #lgPoster; _delay: 300; material.src: ${src}"></a-entity>
+	</script>
+-->
+	
+	<!--plane's disappear if you are on the other side of them so change it to a box with no depth-->
+	<script id="plane" type="text/html">
+			<a-entity class="link"
+			  geometry="primitive: box; height: 1; width: 1; depth:0"
+			  material="shader: flat; src: ${thumb}"
+			  sound="on: click; src: #click-sound"
+			  event-set__mouseenter="scale: 1.2 1.2 1"
+	          event-set__mouseleave="scale: 1 1 1"
+			  event-set__click="_target: #lgPoster; _delay: 300; material.src: ${src}"></a-entity>
+	</script>
+	
+	
+	
+	
+</head>
+
+<body>
+	
+	<a-scene>
+		<a-assets>
+			<audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+			
+			<img id="rock" src="images/Rock045_1K-JPG/Rock045_1K_Color.jpg">
+			
+			<!--large posters-->
+			<img id="panel1" src="images/posters/posters-01.png">
+			<img id="panel2" src="images/posters/posters-02.png">
+			<img id="panel3" src="images/posters/posters-03.png">
+			<img id="panel4" src="images/posters/posters-04.png">
+			
+			<!--panels-->
+			<img id="thumb1" src="images/thumbs/thumbs-01.png">
+			<img id="thumb2" src="images/thumbs/thumbs-02.png">
+			<img id="thumb3" src="images/thumbs/thumbs-03.png">
+			<img id="thumb4" src="images/thumbs/thumbs-04.png">
+			
+			<img id="thumb5" src="images/thumbs/thumbs-05.png">
+			
+		</a-assets>
+		
+<!--
+		<a-entity class="link"
+		  geometry="primitive: plane; height: 1.5; width: 1"
+		  material="shader: flat; src: #panel1"
+		  sound="on: click; src: #click-sound" position="0 1.5 -3"></a-entity>
+-->
+<!--
+		
+		<a-entity class="link"
+		  geometry="primitive: plane; height: 1; width: 1"
+		  material="shader: flat; src: #thumb1"
+		  sound="on: click; src: #click-sound" position="0 1.5 -3"></a-entity>
+		
+-->
+<!--
+		<a-entity template="src: #plane" data-thumb="#thumb1" position="-3 1.5 -3"></a-entity>
+		then add second panel and move it
+		<a-entity template="src: #plane" data-thumb="#thumb2" position="-1.5 1.5 -3"></a-entity>
+		<a-entity template="src: #plane" data-thumb="#thumb3" position="-0 1.5 -3"></a-entity>
+		<a-entity template="src: #plane" data-thumb="#thumb4" position="1.5 1.5 -3"></a-entity>
+-->
+		
+		<!--add data-src when ready to change big poster-->
+		<a-entity template="src: #plane" data-thumb="#thumb1" data-src="#panel1" position="-3 1.5 -3"></a-entity>
+		<!--then add second panel and move it-->
+		<a-entity template="src: #plane" data-thumb="#thumb2" data-src="#panel2" position="-1.5 1.5 -3"></a-entity>
+		<a-entity template="src: #plane" data-thumb="#thumb3" data-src="#panel3" position="-0 1.5 -3"></a-entity>
+		<a-entity template="src: #plane" data-thumb="#thumb4" data-src="#panel4" position="1.5 1.5 -3"></a-entity>
+		
+		
+		<a-entity id="lgPoster" geometry="primitive:box; height:1.5; width:1; depth:0" material="color:white" position="3 1.5 -3"></a-entity>
+		
+		<!--make the rock disapear-->
+		
+		<a-box id="floatRock" src="#rock" position="-4 3 -3" opacity="0"></a-box>
+		
+		<a-entity class="link"
+		  geometry="primitive: plane; height: 1; width: 1"
+		  material="shader: flat; src: #thumb5"
+		  sound="on: click; src: #click-sound" position="-4.5 1.5 -3" 
+			event-set__mouseenter="scale: 1.2 1.2 1"
+	        event-set__mouseleave="scale: 1 1 1"
+			event-set__click="_target: #floatRock; _delay: 300; material.opacity: 1"></a-entity>
+		
+		
+		
+		
+		<a-plane rotation="-90 0 0" width="30" height="30" color="#421050"></a-plane>
+		
+		<a-sky color="#F7CACA"></a-sky>
+		
+		<!-- Camera + Cursor. -->
+		<!--limit camera movement - add look controls, think that WASD will allow movement in mobile-->
+		  <a-camera look-controls wasd-controls>
+			<a-cursor
+			  id="cursor"
+			  animation__click="property: scale; from: 0.5 0.5 0.5; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
+			  animation__clickreset="property: scale; to: 0.5 0.5 0.5; dur: 1; startEvents: animationcomplete__click"
+			  animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
+			  
+			  
+			  <!--adding a HUD-->
+<!--
+			  <a-entity geometry="primitive: plane; height: 0.2; width: 0.2" position="0 0 -1"
+            material="color: gray; opacity: 0.5"></a-entity>
+-->
+		  </a-camera>
+		
+	</a-scene>
+	
+	
+	
+</body>
+</html>
