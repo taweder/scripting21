@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+	
+	<!-- Simple physics
+  Using aframe-physics-system.
+  The camera does not go though objects in the scene, and is "sustained"
+  by the plane acting as a floor. But if you go beyond the borders of the
+  plane, you fall down (you know, gravity...)
+-->
+
+	
+	<script src="//aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+	
+</head>
+
+<body>
+	 <a-scene>
+		 
+		 <a-assets>
+			 <a-asset-item id="terr" src="models/Terrain_Embedded.gltf"></a-asset-item>
+			 <a-asset-item id="my-nav-mesh" src="models/navMesh.gltf"></a-asset-item>
+		 </a-assets>
+      
+     	<a-entity id="ground" gltf-model="#terr" scale="0.5 0.5 0.5" position="0 3 -15" nav-mesh></a-entity>
+<!--		 <a-entity id="mesh" gltf-model="#my-nav-mesh" scale="0.5 0.5 0.5" position="0 3 -15" visible="true" nav-mesh></a-entity>-->
+<!--      <a-plane position="0 0 -4" rotation="-81 90 -90" width="8" height="20" color="orange"></a-plane>-->
+		 
+		 
+		 <!--wall-->
+		 
+<!--
+		 <a-box
+				ammo-body="type: static" 
+				ammo-shape="type:box;" 
+				color="black" height="10" width="2" depth="1" position=""></a-box>
+-->
+		  
+		 
+		 
+		 
+		<a-sky color="#94C6E7"></a-sky>
+		 
+		<a-entity id="rig" movement-controls="constrainToNavMesh: true">
+		  <a-entity camera
+					position="0 1.6 0"
+					look-controls>
+			<a-cursor></a-cursor>
+		  </a-entity>
+		</a-entity>
+		 
+	 
+    </a-scene>
+	
+</body>
+</html>

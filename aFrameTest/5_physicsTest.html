@@ -1,10 +1,86 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Untitled Document</title>
-</head>
-
-<body>
-</body>
+  <head>
+    <title>Examples • AmmoDriver</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame" />
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://mixedreality.mozilla.org/ammo.js/builds/ammo.wasm.js"></script>
+    <script src="js/aframe-physics-system.js"></script>
+    <script>
+      
+    </script>
+  </head>
+  <body>
+    <a-scene physics="driver: ammo; debug: true; gravity: -9.8; debugDrawMode: 1">
+      <a-assets>
+			<a-asset-item id="model" src="models/Axe_Embedded.gltf"></a-asset-item>
+			<a-asset-item id="newAxe" src="newPivot/Axe2.gltf"></a-asset-item>
+<!--			<a-asset-item id="model" src="models/Terrain_Separate.gltf"></a-asset-item>-->
+		</a-assets>
+		
+		
+		<a-entity movement-controls="fly: false" position="0 0 5"
+			geometry="primitive: cylinder; height: 2; radius: 0.8"
+			material="color: green; wireframe: true"
+			id="cam" ammo-body="type: kinematic;" ammo-shape="type: cylinder">
+		  <a-entity camera position="0 1.6 0" look-controls></a-entity>    
+		</a-entity>
+		
+		<a-entity gltf-model="#model" scale="1 1 1" position="-5 5.5 -31.3" rotation="0 0 0"></a-entity>
+		<a-entity gltf-model="#newAxe" scale="5 5 5" position="0 1.5 -3" rotation="90 0 0" shadow
+        ammo-body="type: static; mass: 0;"
+        ammo-shape="type: box; halfExtents: 1 1 3; fit: manual;"></a-entity>
+		
+      <a-box
+        position="-1 5 -5"
+        rotation="0 45 0"
+			 scale="2 2 2"
+        color="#4CC3D9"
+        shadow
+        ammo-body
+        ammo-shape="type: box; halfExtents: 1 1 1; fit: manual;"
+      ></a-box>
+      
+      <a-plane
+        position="0 2 -4"
+        rotation="90 0 0"
+        width="1"
+        height="1"
+        color="#7BC8A4"
+        shadow
+        ammo-body="type: static; mass: 0;"
+        ammo-shape="type: box;"
+      ></a-plane>
+      <a-torus-knot
+        position="0 0 -7"
+        radius="1.25"
+        scale="5 0.1 5"
+        rotation="0 90 0"
+        color="#7BC8A4"
+        shadow
+        ammo-body="type: static; mass: 0;"
+        ammo-shape="type: mesh;"
+      ></a-torus-knot>
+      <!-- HACD and VHACD are slow -->
+      <!--       <a-torus-knot
+        position="-2 1.5 -1"
+        rotation="0 90 90"
+        scale="0.5 0.5 0.5"
+        color="red"
+        shadow
+        ammo-body
+        ammo-shape="type: hacd;"
+      ></a-torus-knot>
+      <a-torus-knot
+        position="2 1.5 -1"
+        rotation="0 90 90"
+        scale="0.5 0.5 0.5"
+        color="blue"
+        shadow
+        ammo-body
+        ammo-shape="type: vhacd;"
+      ></a-torus-knot> -->
+      <a-sky color="#000000"></a-sky>
+    </a-scene>
+  </body>
 </html>
