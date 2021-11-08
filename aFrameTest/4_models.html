@@ -9,6 +9,7 @@
 	<!--aframe physics -->
 	<script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v$npm_package_version/dist/aframe-physics-system.min.js"></script>
 
+
 	<!-- Ammo - https://github.com/n5ro/aframe-physics-system/blob/master/AmmoDriver.md-->
 <!--		<script src="https://mixedreality.mozilla.org/ammo.js/builds/ammo.wasm.js"></script>-->
 	
@@ -19,11 +20,14 @@
 	<a-scene physics="debug:true">
 		<a-assets>
 			<a-asset-item id="model" src="models/Axe_Embedded.gltf"></a-asset-item>
+			<a-asset-item id="newAxe" src="newPivot/Axe2.gltf"></a-asset-item>
 <!--			<a-asset-item id="model" src="models/Terrain_Separate.gltf"></a-asset-item>-->
 		</a-assets>
 		
 		
 		<a-entity gltf-model="#model" scale="1 1 1" position="-5 5.5 -31.3" rotation="0 0 0"></a-entity>
+		<a-entity gltf-model="#newAxe" scale="5 5 5" position="0 1.5 -3" rotation="90 0 0" solid-body></a-entity>
+		
 		<!-- Immovable box -->
 <!--
   <a-box static-body position="0 1.5 -5" width="3" height="1" depth="1"></a-box>
@@ -38,7 +42,7 @@
 		<a-sky color="#F7CACA"></a-sky>
 		
 	 <!-- Camera -->
-  <a-camera look-controls wasd-controls></a-camera>
+  <a-camera look-controls wasd-controls solid-body></a-camera>
 	
 	</a-scene>
 	
