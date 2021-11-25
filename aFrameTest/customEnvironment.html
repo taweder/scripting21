@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>In Body</title>
+	
+	 <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+	
+</head>
+
+<body>
+	
+	<a-scene>
+  <a-assets>
+    <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
+    <img id="skyTexture"
+      src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+    <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+  </a-assets>
+
+  <a-box src="#boxTexture" position="0 2 -5" rotation="0 45 45" scale="2 2 2" animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true" handle-events></a-box>
+		
+  <a-camera>
+    <a-cursor></a-cursor>
+  </a-camera>
+
+  <a-sky src="#skyTexture"></a-sky>
+
+  <a-light type="ambient" color="#445451"></a-light>
+  <a-light type="point" intensity="2" position="2 4 4"></a-light>
+</a-scene>
+	
+	<script>
+  AFRAME.registerComponent('handle-events', {
+        init: function () {
+          var el = this.el;  // <a-box>
+          el.addEventListener('mouseenter', function () {
+            el.setAttribute('color', '#24CAFF');  
+          });
+          el.addEventListener('mouseleave', function () {
+            el.setAttribute('color', '#EF2D5E');  
+          });
+          el.addEventListener('click', function () {
+            el.setAttribute('scale', {x: 2, y: 1, z: 2});
+          });
+        } 
+      });
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+	
+	<!-- Simple physics
+  Using aframe-physics-system.
+  The camera does not go though objects in the scene, and is "sustained"
+  by the plane acting as a floor. But if you go beyond the borders of the
+  plane, you fall down (you know, gravity...)
+-->
+
+	
+	<script src="//aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://mixedreality.mozilla.org/ammo.js/builds/ammo.wasm.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+	
+	
+	
+</head>
+
+<body>
+	 <a-scene physics="driver:ammo; debug: true; debugDrawMode: 1;">
+		 
+		 
+      <!-- Static floor -->
+      <a-plane ammo-body="type: static" ammo-shape="type:box" position="0 0 -4" rotation="-81 90 -90" width="8" height="20"
+          color="yellow"
+			animation="property:rotation; to: -71 90 -90; dur:1000; loop:true; dir:alternate;" ></a-plane>
+		
+      <!--green ball-->
+		 <a-sphere 
+				   ammo-body="type: dynamic" 
+				   ammo-shape="type:sphere;" 
+				   ammo-constraint="target:#room"
+				   
+				   color="green" radius="2" position="-1 4 -4"></a-sphere>
+		 
+		 
+		 
+		 <!--wall-->
+		 
+<!--
+		 <a-box
+				ammo-body="type: static" 
+				ammo-shape="type:box;" 
+				color="black" height="10" width="2" depth="1" position=""></a-box>
+-->
+		  <a-box id="wall"
+				ammo-body="type: static" ammo-shape="type:box"
+				color="black" height="10" width="1" depth="8" position="4 4 -5">
+		 
+		 </a-box>
+		 
+		 
+		 	<a-camera look-controls></a-camera>
+		
+<!--		<a-sky color="#161616"></a-sky>-->
+		 
+<!--
+		 <a-camera look-controls wasd-controls
+				   ammo-body="type: kinematic" 
+				   ammo-shape="type:sphere;"></a-camera>
+-->
+		 <!-- Camera rig, with a cylynder to give an idea of its "size"-->
+<!--
+      <a-entity movement-controls="fly: false" position="0 0 0"
+          geometry="primitive: cylinder; height: 2; radius: 0.8"
+          material="color: green; wireframe: true"
+          id="cam" ammo-body="type: kinematic;" ammo-shape="type: cylinder">
+        <a-entity camera position="0 1.6 0" look-controls></a-entity>    
+      </a-entity>
+-->
+		 
+    </a-scene>
+	
+</body>
+</html>
