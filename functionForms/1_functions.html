@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Functions</title>
+</head>
+
+<body>
+	
+	<h1>Calling a Function with a Button</h1>
+	
+	<p id="myPara">I simply love scripting class. It is my favourite class of all classes!</p>
+	
+	<div id="myDiv">
+		<p>My favourite animal is an octopus. They are so smart and look good in top hats and monocles.</p>
+	</div>
+	
+	<button onClick="changeContent();">Change Content</button>
+	<button onClick="changeStyles();">Change Styles</button>
+	
+	<script>
+	
+	//write a function definition that changes the content of the paragraph
+		function changeContent(){
+			//everything between the curly bracket runs when the function is called
+			console.log("It's Working!");
+			
+			//change the innerHTML of the paragraph
+			document.getElementById('myPara').innerHTML="This is some text from the function being sent to the paragraph.";
+			
+			//put different types of content in the div
+			document.getElementById('myDiv').innerHTML="<h3>Fancy Dude</h3><p>This octopus' name is Harold!</p> <img src='https://outline-prod.imgix.net/20161215-bjkP9iW0Pk6RAP0CU4FY?auto=format&q=60&w=1280&s=d95e738583520a89877a01bca5556923' width='200' alt='An Octopus'>";
+		}//ends changeContent
+		
+		//new function the changes styles
+		
+		function changeStyles(){
+			
+			console.log("This is ChangeStyle");
+			
+			//create a variable that's pointer to the div
+			var pointer= document.getElementById('myDiv');
+			
+			//use the var to change the look of it
+			pointer.style.color="#8417BB";
+			//try to change some other stuff
+			//pointer.style.backgroundColor="#38115E";
+			pointer.style.backgroundImage="url('https://creativecloud.adobe.com/content/dam/2019/201904/make-it-sell-it-patterns/JMFloralRepeat1100x1100.jpg')";
+			pointer.style.height="400px";
+		}
+		
+	
+	</script>
+	
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Using Forms</title>
+	
+	<style>
+/*		#test{color:red;}*/
+	
+	</style>
+</head>
+
+<body>
+	
+	<h1>Using Forms to Get User Input</h1>
+	
+	<p>Please fill out the following form so that I can give you a custom message</p>
+	
+	<!--the beginning of the form - we will add the function call to hook it up with our JavaScript-->
+	<form action="javascript:write();">
+		
+		<!--simple text field with some added attributes-->
+		<p>
+			<label for="fName">First name:</label>
+			<input type="text" id="fName" name="fName" required autofocus>
+		</p>
+		
+		<p>
+			<!--select element - aka drop-down list-->
+			<label for="seasons">Choose a season:</label>
+			<select id="seasons" name="seasons">
+				<option value="winter">Winter</option>
+				<option value="spring">Spring</option>
+				<option value="summer">Summer</option>
+				<option value="autumn">Autumn</option>
+			</select> 
+		</p>
+		
+		<p>
+			<!--set of three radio buttons-->
+			<label for="fav_animal">Choose your favourite animal:</label>
+			<input type="radio" name="fav_animal" value="dog">Dog
+			<input type="radio" name="fav_animal" value="cat">Cat
+			<input type="radio" name="fav_animal" value="fish">Fish
+		</p>
+		
+		
+		<!--the button which will 'submit' the form to the 'form action', which is a call to our JavaScript function-->
+		<p><input type="submit" value="Click Me"></p>
+	</form>
+	
+	<div id="output">This is where the output is going.</div>
+	
+	<script>
+		function write(){
+			//this is the function that runs once the form is submitted
+			console.log("It's working");
+			
+			/*variable declartion block -- This is where we create the variables and assign them a value
+			  In this case the value is whatever the user has entered into the input elements*/
+			var userName = document.getElementById('fName').value;
+			var seas = document.getElementById('seasons').value;	
+			var ani = document.querySelector('input[name="fav_animal"]:checked').value;
+			console.log(ani);
+			
+			//we will use this variable to create a custom message depending on which animal they choose
+
+			var aniMessage;
+
+			
+						
+			//if conditional logic depending on their choice
+			if(ani=="dog"){
+				aniMessage="Dog people are the best. My dog's name is Joe The Weirdo.";	
+			}else if(ani=="cat"){
+				aniMessage="Cats are so cuddly... and scratchy. My cat's name was Chamberlain.";
+			}else if(ani=="fish"){
+				aniMessage="Fish are so calming. My daughter's fish's name is Billy John."
+			}
+		
+			const style = document.createElement('style');
+			style.innerHTML = `
+				  .test {
+					background-color: yellow;
+					color:red;
+				  }
+				  //add more styles here
+			`;
+			
+			//concatenate together strings and variables to create a message
+			document.getElementById('output').innerHTML="<img src='stories.jpg' alt='stories'><br>";
+			document.getElementById('output').innerHTML+="<p id='test'>Hello "+userName+"!</p>";	
+			document.getElementById('output').innerHTML+=" My favourite season is also "+seas+". ";			
+			document.getElementById('output').innerHTML+=aniMessage;		
+		}
+	</script>
+	
+</body>
+</html>
+
+
+
+
+
