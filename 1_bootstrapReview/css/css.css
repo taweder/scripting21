@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+
+h1, h2{
+	font-family: 'Ms Madi', cursive;
+}
+header{
+	background: url("../images/mountain.jpg");
+		
+	
+	background-position: center;
+	background-size: cover;
+}
+#about{
+	background: #4F4E47;
+
+}
+
+#contact{
+	background-color: #EDE8E4;
+}
